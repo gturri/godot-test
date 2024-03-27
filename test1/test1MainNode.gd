@@ -23,12 +23,10 @@ func buildCharacter(speed, ratio, color):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	character1.ratio += character1.speed * delta
-	$Path2D/PathFollow2D.progress_ratio = character1.ratio
-	character1.position = $Path2D/PathFollow2D.position
-	
-	character2.ratio += character2.speed * delta
-	$Path2D/PathFollow2D.progress_ratio = character2.ratio
-	character2.position = $Path2D/PathFollow2D.position
+	processCharacter(character1, delta)
+	processCharacter(character2, delta)
 
-
+func processCharacter(character, delta):
+	character.ratio += character.speed * delta
+	$Path2D/PathFollow2D.progress_ratio = character.ratio
+	character.position = $Path2D/PathFollow2D.position
