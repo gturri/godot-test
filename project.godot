@@ -14,6 +14,11 @@ config/name="gt-playground"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="gt-playground"
