@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ihki7gwne2u"]
+
+[ext_resource type="Script" path="res://test2-simplified-tetris-ish/test2Main.gd" id="1_1x1bq"]
+[ext_resource type="PackedScene" uid="uid://dr48vbv2tk63x" path="res://test2-simplified-tetris-ish/block.tscn" id="2_tgwim"]
+
+[node name="Test2Main" type="Node2D"]
+script = ExtResource("1_1x1bq")
+block_scene = ExtResource("2_tgwim")
