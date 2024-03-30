@@ -12,4 +12,4 @@ func _process(delta):
 	pass
 
 func _on_area_entered(area):
-	reached_bottom.emit()
+	reached_bottom.emit(self)

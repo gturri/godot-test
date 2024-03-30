@@ -12,10 +12,14 @@ func _ready():
 	new_current_block()
 
 func new_current_block():
+	if current_block:
+		current_block.reached_bottom.disconnect(on_current_block_reached_bottom)
 	current_block = block_scene.instantiate()
 	current_block.position.x = viewport_size.x / 2
 	current_block.position.y = 0
 	add_child(current_block)
+
+	current_block.reached_bottom.connect(on_current_block_reached_bottom)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,3 +27,6 @@ func _process(delta):
 	if current_block.position.y > viewport_size.y:
 		current_block.position.y = viewport_size.y
 		new_current_block()
+
+func on_current_block_reached_bottom(block):
+	new_current_block()
