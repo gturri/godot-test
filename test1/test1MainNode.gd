@@ -6,6 +6,7 @@ signal hit
 
 var character1
 var character2
+var cameraSpeed = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +26,19 @@ func buildCharacter(speed, ratio, color):
 func _process(delta):
 	processCharacter(character1, delta)
 	processCharacter(character2, delta)
+
+	var direction = Vector2.ZERO
+	if Input.is_action_pressed("ui_left"):
+		direction.x -= 1
+	if Input.is_action_pressed("ui_right"):
+		direction.x += 1
+	if Input.is_action_pressed("ui_left"):
+		direction.y -= 1
+	if Input.is_action_pressed("ui_right"):
+		direction.y += 1
+	direction = direction.normalized() * delta * cameraSpeed
+
+	$Camera2D.position += direction
 
 func processCharacter(character, delta):
 	character.ratio += character.speed * delta

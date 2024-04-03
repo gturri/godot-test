@@ -19,3 +19,6 @@ curve = SubResource("Curve2D_x7m6r")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(269, 353)
 rotation = 1.77013
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(238, 361)
