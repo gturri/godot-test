@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wtvqsq5vq5"]
+[gd_scene load_steps=5 format=3 uid="uid://wtvqsq5vq5"]
 
 [ext_resource type="Texture2D" uid="uid://7pnjyywmj3w4" path="res://test4-otnup/tiles/tilesheet.png" id="1_6g4mm"]
+[ext_resource type="Script" path="res://test4-otnup/test4-otnup-main.gd" id="1_nvmxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h855n"]
 texture = ExtResource("1_6g4mm")
@@ -20,6 +21,7 @@ tile_size = Vector2i(64, 64)
 sources/2 = SubResource("TileSetAtlasSource_h855n")
 
 [node name="Test4-otnup-main" type="Node2D"]
+script = ExtResource("1_nvmxx")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_s52cs")
