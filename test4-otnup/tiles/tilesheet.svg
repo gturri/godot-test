@@ -1,0 +1,84 @@
+<svg width="640" height="64" xmlns="http://www.w3.org/2000/svg" style="background-color:#fff;">
+	<svg width="10%" x="0%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="50%" cy="50%" r="7%" fill="red" />
+	</svg>
+	<svg width="10%" x="10%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="22%" cy="22%" r="7%" fill="red" />
+		<circle cx="78%" cy="78%" r="7%" fill="red" />
+	</svg>
+		<svg width="10%" x="20%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="22%" cy="22%" r="7%" fill="red" />
+		<circle cx="50%" cy="50%" r="7%" fill="red" />
+		<circle cx="78%" cy="78%" r="7%" fill="red" />
+	</svg>
+	<svg width="10%" x="30%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="22%" cy="22%" r="7%" fill="red" />
+		<circle cx="78%" cy="22%" r="7%" fill="red" />
+	
+		<circle cx="22%" cy="78%" r="7%" fill="red" />
+		<circle cx="78%" cy="78%" r="7%" fill="red" />
+	</svg>
+	<svg width="10%" x="40%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="22%" cy="22%" r="7%" fill="red" />
+		<circle cx="78%" cy="22%" r="7%" fill="red" />
+	
+		<circle cx="50%" cy="50%" r="7%" fill="red" />
+	
+		<circle cx="22%" cy="78%" r="7%" fill="red" />
+		<circle cx="78%" cy="78%" r="7%" fill="red" />
+	</svg>
+	<svg width="10%" x="50%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="22%" cy="22%" r="7%" fill="red" />
+		<circle cx="50%" cy="22%" r="7%" fill="red" />
+		<circle cx="78%" cy="22%" r="7%" fill="red" />
+	
+		<circle cx="22%" cy="78%" r="7%" fill="red" />
+		<circle cx="50%" cy="78%" r="7%" fill="red" />
+		<circle cx="78%" cy="78%" r="7%" fill="red" />
+	</svg>
+	<svg width="10%" x="60%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="22%" cy="22%" r="7%" fill="red" />
+		<circle cx="50%" cy="22%" r="7%" fill="red" />
+		<circle cx="78%" cy="22%" r="7%" fill="red" />
+	
+		<circle cx="50%" cy="50%" r="7%" fill="red" />
+	
+		<circle cx="22%" cy="78%" r="7%" fill="red" />
+		<circle cx="50%" cy="78%" r="7%" fill="red" />
+		<circle cx="78%" cy="78%" r="7%" fill="red" />
+	</svg>
+	<svg width="10%" x="70%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="22%" cy="22%" r="7%" fill="red" />
+		<circle cx="50%" cy="22%" r="7%" fill="red" />
+		<circle cx="78%" cy="22%" r="7%" fill="red" />
+	
+		<circle cx="22%" cy="50%" r="7%" fill="red" />
+		<circle cx="78%" cy="50%" r="7%" fill="red" />
+	
+		<circle cx="22%" cy="78%" r="7%" fill="red" />
+		<circle cx="50%" cy="78%" r="7%" fill="red" />
+		<circle cx="78%" cy="78%" r="7%" fill="red" />
+	</svg>
+	<svg width="10%" x="80%">
+		<rect fill="black" stroke="white" stroke-width="1" x="0" y="0" width="100%" height="100%" />
+		<circle cx="22%" cy="22%" r="7%" fill="red" />
+		<circle cx="50%" cy="22%" r="7%" fill="red" />
+		<circle cx="78%" cy="22%" r="7%" fill="red" />
+	
+		<circle cx="22%" cy="50%" r="7%" fill="red" />
+		<circle cx="50%" cy="50%" r="7%" fill="red" />
+		<circle cx="78%" cy="50%" r="7%" fill="red" />
+	
+		<circle cx="22%" cy="78%" r="7%" fill="red" />
+		<circle cx="50%" cy="78%" r="7%" fill="red" />
+		<circle cx="78%" cy="78%" r="7%" fill="red" />
+	</svg>
+</svg>
