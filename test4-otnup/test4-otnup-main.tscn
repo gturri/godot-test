@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://7pnjyywmj3w4" path="res://test4-otnup/tiles/tilesheet.png" id="1_6g4mm"]
 [ext_resource type="Script" path="res://test4-otnup/test4-otnup-main.gd" id="1_nvmxx"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h855n"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ok31r"]
 texture = ExtResource("1_6g4mm")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -15,10 +15,19 @@ texture_region_size = Vector2i(64, 64)
 6:0/0 = 0
 7:0/0 = 0
 8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_s52cs"]
 tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_h855n")
+sources/1 = SubResource("TileSetAtlasSource_ok31r")
 
 [node name="Test4-otnup-main" type="Node2D"]
 script = ExtResource("1_nvmxx")
