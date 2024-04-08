@@ -63,12 +63,11 @@ func drawNextCard():
 func canPutCard(tile_pos):
 	if cardsPlayed.is_empty():
 		return true
-	if not inBoardLimits(tile_pos):
-		print("ERR: not in board limit")
-		return false
-	if not isNearAnExistingCard(tile_pos):
-		print("ERR: not near an existing card")
-		return false
+	return inBoardLimits(tile_pos) \
+	 and isNearAnExistingCard(tile_pos) \
+	 and onEmptyCellOrIsBiggerThanOpponentCard(tile_pos);
+
+func onEmptyCellOrIsBiggerThanOpponentCard(tile_pos):
 	if cardsPlayed.has(tile_pos):
 		var existingCard = cardsPlayed[tile_pos]
 		if existingCard[1] == currentPlayer:
@@ -88,6 +87,7 @@ func isNearAnExistingCard(tile_pos):
 	for neighbor in getNineNeighbors(tile_pos):
 		if cardsPlayed.has(neighbor):
 			return true
+	print("ERR: not near an existing card")
 	return false
 
 func getNineNeighbors(tile_pos):
@@ -104,11 +104,14 @@ func getNineNeighbors(tile_pos):
 	]
 
 func inBoardLimits(tile_pos):
-	print("checking boardLimits with " + str(tile_pos))
-	return tile_pos.x - xmin < maxBoardDimension and \
-		xmax - tile_pos.x < maxBoardDimension and \
-		tile_pos.y - ymin < maxBoardDimension and \
-		ymax - tile_pos.y < maxBoardDimension;
+	if tile_pos.x - xmin < maxBoardDimension and \
+	 xmax - tile_pos.x < maxBoardDimension and \
+	 tile_pos.y - ymin < maxBoardDimension and \
+	 ymax - tile_pos.y < maxBoardDimension:
+		return true;
+	else:
+		print("not in the board limits")
+		return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
