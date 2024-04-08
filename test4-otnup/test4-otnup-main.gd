@@ -64,7 +64,10 @@ func canPutCard(tile_pos):
 	if cardsPlayed.is_empty():
 		return true
 	if not inBoardLimits(tile_pos):
-		print("not in board limit")
+		print("ERR: not in board limit")
+		return false
+	if not isNearAnExistingCard(tile_pos):
+		print("ERR: not near an existing card")
 		return false
 	if cardsPlayed.has(tile_pos):
 		var existingCard = cardsPlayed[tile_pos]
@@ -77,8 +80,28 @@ func canPutCard(tile_pos):
 		else:
 			print("ERR: card is not bigger than the existing one")
 			return false
-	# TODO: check that we're near an existing card
 	return true
+
+func isNearAnExistingCard(tile_pos):
+	if cardsPlayed.has(tile_pos):
+		return true
+	for neighbor in getNineNeighbors(tile_pos):
+		if cardsPlayed.has(neighbor):
+			return true
+	return false
+
+func getNineNeighbors(tile_pos):
+	return [
+		Vector2i(tile_pos.x-1, tile_pos.y-1),
+		Vector2i(tile_pos.x-1, tile_pos.y  ),
+		Vector2i(tile_pos.x-1, tile_pos.y+1),
+		Vector2i(tile_pos.x  , tile_pos.y-1),
+		Vector2i(tile_pos.x  , tile_pos.y  ),
+		Vector2i(tile_pos.x  , tile_pos.y+1),
+		Vector2i(tile_pos.x+1, tile_pos.y-1),
+		Vector2i(tile_pos.x+1, tile_pos.y  ),
+		Vector2i(tile_pos.x+1, tile_pos.y+1),
+	]
 
 func inBoardLimits(tile_pos):
 	print("checking boardLimits with " + str(tile_pos))
