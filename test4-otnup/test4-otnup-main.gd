@@ -7,11 +7,14 @@ var numberPlayers = 2
 var cardsPlayed = {}
 var nextCard
 static var maxBoardDimension = 6
+static var nbToAlignToWin = 4
 
 var xmin = null;
 var xmax = null;
 var ymin = null;
 var ymax = null
+
+var isGameCompleted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,18 +28,44 @@ func createDeck():
 	decks.append(deck)
 
 func _input(event):
+	if isGameCompleted:
+		return
 	if event.is_action_pressed("select_tile"):
 		var mouse_pos = get_global_mouse_position()
-		var tile_pos = $TileMap.local_to_map(mouse_pos)
+		var tile_pos: Vector2i = $TileMap.local_to_map(mouse_pos)
 		if not canPutCard(tile_pos):
 			return
 		var tile = Vector2i(nextCard, currentPlayer)
 		updateBoardDimension(tile_pos)
 		$TileMap.set_cell(0, tile_pos, 1, tile)
-		# TODO: check if the player won, or if there are no cards left
 		cardsPlayed[tile_pos] = [nextCard, currentPlayer] #TODO: could be cleaner to have an ad hoc class instead of this Array
+
+		if hasPlayerJustWon(tile_pos):
+			print("Player just won")
+			isGameCompleted = true
+			# TODO: send signal
+		# TODO: check if there are no cards left
+
 		currentPlayer = (currentPlayer + 1) % numberPlayers
 		drawNextCard()
+
+func hasPlayerJustWon(lastTilePos: Vector2i):
+	return hasPlayerJustWonInGivenDirection(lastTilePos, Vector2i(1, 0)) \
+	 or hasPlayerJustWonInGivenDirection(lastTilePos, Vector2i(1, 1)) \
+	 or hasPlayerJustWonInGivenDirection(lastTilePos, Vector2i(0, 1)) \
+	 or hasPlayerJustWonInGivenDirection(lastTilePos, Vector2i(-1, 1))
+
+func hasPlayerJustWonInGivenDirection(lastTilePos: Vector2i, directionToCheck: Vector2i):
+	var nbAligned = 1
+	var nextToCheck = lastTilePos + directionToCheck
+	while nbAligned < nbToAlignToWin and cardsPlayed.has(nextToCheck) and cardsPlayed[nextToCheck][1] == currentPlayer:
+		nbAligned += 1
+		nextToCheck += directionToCheck
+	nextToCheck = lastTilePos - directionToCheck
+	while nbAligned < nbToAlignToWin and cardsPlayed.has(nextToCheck) and cardsPlayed[nextToCheck][1] == currentPlayer:
+		nbAligned += 1
+		nextToCheck -= directionToCheck
+	return nbAligned == nbToAlignToWin
 
 func updateBoardDimension(tile_pos):
 	if xmin == null:
