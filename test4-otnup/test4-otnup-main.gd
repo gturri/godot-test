@@ -32,12 +32,12 @@ func _input(event):
 		return
 	if event.is_action_pressed("select_tile"):
 		var mouse_pos = get_global_mouse_position()
-		var tile_pos: Vector2i = $TileMap.local_to_map(mouse_pos)
+		var tile_pos: Vector2i = $BoardView.local_to_map(mouse_pos)
 		if not canPutCard(tile_pos):
 			return
 		var tile = Vector2i(nextCard, currentPlayer)
 		updateBoardDimension(tile_pos)
-		$TileMap.set_cell(0, tile_pos, 1, tile)
+		$BoardView.set_cell(0, tile_pos, 1, tile)
 		cardsPlayed[tile_pos] = [nextCard, currentPlayer] #TODO: could be cleaner to have an ad hoc class instead of this Array
 
 		if hasPlayerJustWon(tile_pos):

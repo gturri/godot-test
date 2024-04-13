@@ -1,41 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://wtvqsq5vq5"]
+[gd_scene load_steps=3 format=3 uid="uid://wtvqsq5vq5"]
 
-[ext_resource type="Texture2D" uid="uid://7pnjyywmj3w4" path="res://test4-otnup/tiles/tilesheet.png" id="1_6g4mm"]
 [ext_resource type="Script" path="res://test4-otnup/test4-otnup-main.gd" id="1_nvmxx"]
-[ext_resource type="Script" path="res://test4-otnup/Camera2D.gd" id="3_pshwr"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ok31r"]
-texture = ExtResource("1_6g4mm")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_s52cs"]
-tile_size = Vector2i(64, 64)
-sources/1 = SubResource("TileSetAtlasSource_ok31r")
+[ext_resource type="PackedScene" uid="uid://b1c1ftlvgb4xe" path="res://test4-otnup/board_view.tscn" id="2_m6dx1"]
 
 [node name="Test4-otnup-main" type="Node2D"]
 script = ExtResource("1_nvmxx")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_s52cs")
-format = 2
-
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("3_pshwr")
+[node name="BoardView" parent="." instance=ExtResource("2_m6dx1")]
