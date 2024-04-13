@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://wtvqsq5vq5"]
+[gd_scene load_steps=4 format=3 uid="uid://wtvqsq5vq5"]
 
 [ext_resource type="Script" path="res://test4-otnup/test4-otnup-main.gd" id="1_nvmxx"]
 [ext_resource type="PackedScene" uid="uid://b1c1ftlvgb4xe" path="res://test4-otnup/board_view.tscn" id="2_m6dx1"]
+[ext_resource type="PackedScene" uid="uid://biorncdf5l6wd" path="res://test4-otnup/board_model.tscn" id="3_jf6kk"]
 
 [node name="Test4-otnup-main" type="Node2D"]
 script = ExtResource("1_nvmxx")
 
 [node name="BoardView" parent="." instance=ExtResource("2_m6dx1")]
+
+[node name="BoardModel" parent="." instance=ExtResource("3_jf6kk")]
