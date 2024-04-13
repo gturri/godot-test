@@ -9,7 +9,8 @@ func _ready():
 		remaining.append(number)
 	remaining.shuffle()
 		
-func draw():
+func draw() -> int:
 	return remaining.pop_back()
 
-
+func isEmpty() -> bool:
+	return remaining.is_empty()
