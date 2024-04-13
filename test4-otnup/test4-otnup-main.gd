@@ -2,12 +2,12 @@ extends Node2D
 
 var deckScene = preload("res://test4-otnup/Deck.tscn")
 var decks = Array()
-var currentPlayer = 0
-var numberPlayers = 2
+var currentPlayer: int = 0
+var numberPlayers: int = 2
 
-var nextCard
+var nextCard: int
 
-var isGameCompleted = false
+var isGameCompleted: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,11 +25,10 @@ func _input(event):
 		return
 	if event.is_action_pressed("select_tile"):
 		var mouse_pos = get_global_mouse_position()
-		var tile_pos: Vector2i = $BoardView.local_to_map(mouse_pos)
+		var tile_pos: Vector2i = $BoardView.clickPosToCardPos(mouse_pos)
 		if not $BoardModel.canPutCard(tile_pos, nextCard, currentPlayer):
 			return
-		var tile = Vector2i(nextCard, currentPlayer)
-		$BoardView.set_cell(0, tile_pos, 1, tile)
+		$BoardView.putCard(tile_pos, nextCard, currentPlayer)
 		$BoardModel.putCard(tile_pos, nextCard, currentPlayer)
 
 		if $BoardModel.hasJustWon(tile_pos, currentPlayer):
