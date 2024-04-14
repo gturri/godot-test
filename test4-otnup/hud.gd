@@ -12,10 +12,12 @@ func showHintMessage(text) -> void:
 func onGameDraw() -> void:
 	$MainMessage.text = "Draw"
 	$MainMessage.show()
+	$NewGameButton.show()
 
 func onPlayerWon(player: int) -> void:
 	$MainMessage.text = "Player " + str(player) + " won!"
 	$MainMessage.show()
+	$NewGameButton.show()
 
 func __gameEnded() -> void:
 	$NewGameButton.show()

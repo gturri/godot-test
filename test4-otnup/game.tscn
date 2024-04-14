@@ -10,3 +10,5 @@ script = ExtResource("1_2dsk8")
 [node name="BoardView" parent="." instance=ExtResource("2_wtyej")]
 
 [node name="BoardModel" parent="." instance=ExtResource("3_umol5")]
+
+[connection signal="hintMessage" from="BoardModel" to="." method="_on_board_model_hint_message"]

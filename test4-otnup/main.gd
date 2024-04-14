@@ -8,3 +8,9 @@ func onNewGame():
 		gameSceneInstance.free()
 	gameSceneInstance = gameSceneResource.instantiate()
 	add_child(gameSceneInstance)
+	gameSceneInstance.playerWon.connect($HUD.onPlayerWon)
+	gameSceneInstance.gameDraw.connect($HUD.onGameDraw)
+	gameSceneInstance.showHint.connect($HUD.showHintMessage)
+	#gameSceneInstance.nextCardDrawn.connect(TODO)
+
+

@@ -8,6 +8,11 @@ var nextCard: Card
 
 var isGameCompleted: bool = false
 
+signal playerWon(player: int)
+signal gameDraw
+signal showHint(message: String)
+signal nextCardDrawn(card: Card)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for player in range(numberPlayers): decks.append(Deck.new(player))
@@ -27,18 +32,18 @@ func _input(event):
 		if $BoardModel.hasJustWon(tile_pos):
 			print("Player just won")
 			isGameCompleted = true
-			# TODO: send a signal
+			playerWon.emit(currentPlayer)
 		elif __areDecksEmpty():
 			print("No cards left for anyone")
 			isGameCompleted = true
-			# TODO: send a signal
+			gameDraw.emit()
 		else:
 			currentPlayer = (currentPlayer + 1) % numberPlayers
 			__drawNextCard()
 
 func __drawNextCard():
 	nextCard = decks[currentPlayer].draw()
-	# TODO: display this message in-game
+	nextCardDrawn.emit(nextCard)
 	print("next card: " + str(nextCard))
 
 func __areDecksEmpty():
@@ -46,3 +51,7 @@ func __areDecksEmpty():
 		if not deck.isEmpty():
 			return false
 	return true
+
+
+func _on_board_model_hint_message(message):
+	showHint.emit(message) # Replace with function body.

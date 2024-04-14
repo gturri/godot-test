@@ -9,6 +9,8 @@ var xmax = null
 var ymin = null
 var ymax = null
 
+signal hintMessage(message: String)
+
 func putCard(cardPos: Vector2i, card: Card):
 	cardsPlayed[cardPos] = card
 	__updateBoardDimension(cardPos)
@@ -44,7 +46,7 @@ func __isNearAnExistingCard(cardPos: Vector2i):
 	for neighbor in __getNineNeighbors(cardPos):
 		if cardsPlayed.has(neighbor):
 			return true
-	print("ERR: not near an existing card")
+	__emitHintMessage("ERR: not near an existing card")
 	return false
 
 func __getNineNeighbors(cardPos: Vector2i):
@@ -67,20 +69,19 @@ func __inBoardLimits(cardPos: Vector2i):
 	 ymax - cardPos.y < maxBoardDimension:
 		return true;
 	else:
-		print("ERR: not in the board limits")
+		__emitHintMessage("ERR: not in the board limits")
 		return false
 
 func __onEmptyCellOrIsBiggerThanOpponentCard(cardPos: Vector2i, card: Card):
 	if cardsPlayed.has(cardPos):
 		var existingCard: Card = cardsPlayed[cardPos]
 		if existingCard.player == card.player:
-			# TODO: display this message in-game
-			print("ERR: a player cannot play on his or her own card")
+			__emitHintMessage("ERR: a player cannot play on his or her own card")
 			return false
 		if card.cardValue > existingCard.cardValue:
 			return true
 		else:
-			print("ERR: card is not bigger than the existing one")
+			__emitHintMessage("ERR: card is not bigger than the existing one")
 			return false
 	return true
 
@@ -103,3 +104,6 @@ func __hasJustWonInGivenDirection(lastCardPos: Vector2i, player: int, directionT
 		nextPosToCheck -= directionToCheck
 	return nbAligned == nbToAlignToWin
 
+func __emitHintMessage(message: String) -> void:
+	print(message)
+	hintMessage.emit(message)
