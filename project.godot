@@ -23,6 +23,10 @@ window/size/viewport_height=720
 
 project/assembly_name="gt-playground"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
 [input]
 
 select_tile={
