@@ -39,7 +39,7 @@ func _input(event):
 func __drawNextCard():
 	nextCard = decks[currentPlayer].draw()
 	# TODO: display this message in-game
-	print("next card (for player " + str(currentPlayer) + "): " + str(nextCard))
+	print("next card: " + str(nextCard))
 
 func __areDecksEmpty():
 	for deck in decks:
