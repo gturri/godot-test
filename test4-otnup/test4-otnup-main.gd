@@ -1,16 +1,16 @@
 extends Node2D
 
-var decks = Array()
+var decks: Array[Deck] = []
 var currentPlayer: int = 0
 var numberPlayers: int = 2
 
-var nextCard: int
+var nextCard: Card
 
 var isGameCompleted: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(numberPlayers): decks.append(Deck.new())
+	for player in range(numberPlayers): decks.append(Deck.new(player))
 	__drawNextCard()
 
 func _input(event):
@@ -19,12 +19,12 @@ func _input(event):
 	if event.is_action_pressed("select_tile"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_pos: Vector2i = $BoardView.clickPosToCardPos(mouse_pos)
-		if not $BoardModel.canPutCard(tile_pos, nextCard, currentPlayer):
+		if not $BoardModel.canPutCard(tile_pos, nextCard):
 			return
-		$BoardView.putCard(tile_pos, nextCard, currentPlayer)
-		$BoardModel.putCard(tile_pos, nextCard, currentPlayer)
+		$BoardView.putCard(tile_pos, nextCard)
+		$BoardModel.putCard(tile_pos, nextCard)
 
-		if $BoardModel.hasJustWon(tile_pos, currentPlayer):
+		if $BoardModel.hasJustWon(tile_pos):
 			print("Player just won")
 			isGameCompleted = true
 			# TODO: send a signal

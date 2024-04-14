@@ -1,9 +1,5 @@
 extends Node2D
 
-class Card:
-	var player:int
-	var cardValue: int
-
 var cardsPlayed = {}
 static var maxBoardDimension = 6
 static var nbToAlignToWin = 4
@@ -13,10 +9,7 @@ var xmax = null
 var ymin = null
 var ymax = null
 
-func putCard(cardPos: Vector2i, cardValue: int, player: int):
-	var card = Card.new()
-	card.cardValue = cardValue
-	card.player = player
+func putCard(cardPos: Vector2i, card: Card):
 	cardsPlayed[cardPos] = card
 	__updateBoardDimension(cardPos)
 
@@ -37,13 +30,13 @@ func __updateBoardDimension(cardPos: Vector2i):
 		ymax = cardPos.y
 	print("board limits: x=[" + str(xmin) + ", " + str(xmax) + "], y=[" + str(ymin) + ", " + str(ymax) + "]")
 
-func canPutCard(cardPos: Vector2i, cardValue: int, player: int):
+func canPutCard(cardPos: Vector2i, card: Card):
 	if cardsPlayed.is_empty():
 		print("The board is empty, any move is legal")
 		return true
 	return __inBoardLimits(cardPos) \
 	 and __isNearAnExistingCard(cardPos) \
-	 and __onEmptyCellOrIsBiggerThanOpponentCard(cardPos, cardValue, player)
+	 and __onEmptyCellOrIsBiggerThanOpponentCard(cardPos, card)
 	
 func __isNearAnExistingCard(cardPos: Vector2i):
 	if cardsPlayed.has(cardPos):
@@ -77,21 +70,22 @@ func __inBoardLimits(cardPos: Vector2i):
 		print("ERR: not in the board limits")
 		return false
 
-func __onEmptyCellOrIsBiggerThanOpponentCard(cardPos: Vector2i, cardValue: int, player: int):
+func __onEmptyCellOrIsBiggerThanOpponentCard(cardPos: Vector2i, card: Card):
 	if cardsPlayed.has(cardPos):
 		var existingCard: Card = cardsPlayed[cardPos]
-		if existingCard.player == player:
+		if existingCard.player == card.player:
 			# TODO: display this message in-game
 			print("ERR: a player cannot play on his or her own card")
 			return false
-		if cardValue > existingCard.cardValue:
+		if card.cardValue > existingCard.cardValue:
 			return true
 		else:
 			print("ERR: card is not bigger than the existing one")
 			return false
 	return true
 
-func hasJustWon(lastCardPos: Vector2i, player: int):
+func hasJustWon(lastCardPos: Vector2i):
+	var player = cardsPlayed[lastCardPos].player
 	return __hasJustWonInGivenDirection(lastCardPos, player, Vector2i(1, 0)) \
 	 or __hasJustWonInGivenDirection(lastCardPos, player, Vector2i(1, 1)) \
 	 or __hasJustWonInGivenDirection(lastCardPos, player, Vector2i(0, 1)) \
