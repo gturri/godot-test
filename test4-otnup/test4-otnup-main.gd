@@ -1,6 +1,5 @@
 extends Node2D
 
-var deckScene = preload("res://test4-otnup/Deck.tscn")
 var decks = Array()
 var currentPlayer: int = 0
 var numberPlayers: int = 2
@@ -11,14 +10,8 @@ var isGameCompleted: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	__createDeck()
-	__createDeck()
+	for i in range(numberPlayers): decks.append(Deck.new())
 	__drawNextCard()
-
-func __createDeck():
-	var deck = deckScene.instantiate()
-	add_child(deck)
-	decks.append(deck)
 
 func _input(event):
 	if isGameCompleted:

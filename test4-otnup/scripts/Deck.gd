@@ -1,14 +1,13 @@
-extends Node
+class_name Deck
 
-var remaining = Array()
+var remaining: Array[int] = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	for number in 9:
 		remaining.append(number)
 		remaining.append(number)
 	remaining.shuffle()
-		
+
 func draw() -> int:
 	return remaining.pop_back()
 
