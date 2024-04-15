@@ -11,6 +11,6 @@ func onNewGame():
 	gameSceneInstance.playerWon.connect($HUD.onPlayerWon)
 	gameSceneInstance.gameDraw.connect($HUD.onGameDraw)
 	gameSceneInstance.showHint.connect($HUD.showHintMessage)
-	#gameSceneInstance.nextCardDrawn.connect(TODO)
+	gameSceneInstance.nextCardDrawn.connect($HUD.onNewNextCard)
 
 

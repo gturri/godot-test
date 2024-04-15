@@ -11,12 +11,12 @@ var isGameCompleted: bool = false
 signal playerWon(player: int)
 signal gameDraw
 signal showHint(message: String)
-signal nextCardDrawn(card: Card)
+signal nextCardDrawn(card: Card, texture: Texture2D)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for player in range(numberPlayers): decks.append(Deck.new(player))
-	__drawNextCard()
+	__drawNextCard() # TODO: this is likely called too soon, and the cards texture isn't initialized yet
 
 func _input(event):
 	if isGameCompleted:
@@ -43,7 +43,7 @@ func _input(event):
 
 func __drawNextCard():
 	nextCard = decks[currentPlayer].draw()
-	nextCardDrawn.emit(nextCard)
+	nextCardDrawn.emit(nextCard, $BoardView.getCardTexture(nextCard))
 	print("next card: " + str(nextCard))
 
 func __areDecksEmpty():

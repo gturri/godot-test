@@ -21,15 +21,11 @@ theme_override_font_sizes/font_size = 64
 text = "Otnup"
 
 [node name="HintMessage" type="Label" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -268.0
-offset_right = 57.0
-offset_bottom = -245.0
+offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.647059, 0, 1)
@@ -49,5 +45,20 @@ offset_bottom = -104.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Start new game"
+
+[node name="NextCard" type="TextureRect" parent="."]
+visible = false
+offset_left = 391.0
+offset_top = 15.0
+offset_right = 431.0
+offset_bottom = 55.0
+
+[node name="NextCardLabel" type="Label" parent="."]
+visible = false
+offset_left = 274.0
+offset_top = 15.0
+offset_right = 350.0
+offset_bottom = 38.0
+text = "Next card"
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
