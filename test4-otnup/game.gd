@@ -8,6 +8,9 @@ var nextCard: Card
 
 var isGameCompleted: bool = false
 
+@export var timeInSecondsBetweenTwoConsecutiveCards = 0.2
+var playedACardRecently: bool = false # to avoid playing two cards in a row because of a misclick
+
 signal playerWon(player: int)
 signal gameDraw
 signal showHint(message: String)
@@ -19,7 +22,7 @@ func _ready():
 	__drawNextCard()
 
 func _input(event):
-	if isGameCompleted:
+	if isGameCompleted or playedACardRecently:
 		return
 	if event.is_action_pressed("select_tile"):
 		var mouse_pos = get_global_mouse_position()
@@ -40,6 +43,9 @@ func _input(event):
 		else:
 			currentPlayer = (currentPlayer + 1) % numberPlayers
 			__drawNextCard()
+			playedACardRecently = true
+			await get_tree().create_timer(timeInSecondsBetweenTwoConsecutiveCards).timeout
+			playedACardRecently = false
 
 func __drawNextCard():
 	nextCard = decks[currentPlayer].draw()
@@ -51,7 +57,6 @@ func __areDecksEmpty():
 		if not deck.isEmpty():
 			return false
 	return true
-
 
 func _on_board_model_hint_message(message):
 	showHint.emit(message) # Replace with function body.
