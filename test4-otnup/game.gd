@@ -16,7 +16,7 @@ signal nextCardDrawn(card: Card, texture: Texture2D)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for player in range(numberPlayers): decks.append(Deck.new(player))
-	__drawNextCard() # TODO: this is likely called too soon, and the cards texture isn't initialized yet
+	__drawNextCard()
 
 func _input(event):
 	if isGameCompleted:
