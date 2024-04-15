@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b1c1ftlvgb4xe" path="res://test4-otnup/board_view.tscn" id="2_wtyej"]
 [ext_resource type="PackedScene" uid="uid://biorncdf5l6wd" path="res://test4-otnup/board_model.tscn" id="3_umol5"]
 
-[node name="Test4-otnup-main" type="Node2D"]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_2dsk8")
 
 [node name="BoardView" parent="." instance=ExtResource("2_wtyej")]
