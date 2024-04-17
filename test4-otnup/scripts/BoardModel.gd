@@ -1,4 +1,4 @@
-extends Node2D
+class_name BoardModel
 
 var cardsPlayed = {}
 static var maxBoardDimension = 6
