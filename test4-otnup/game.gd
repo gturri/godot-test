@@ -5,6 +5,7 @@ var currentPlayer: int = 0
 var numberPlayers: int = 2
 
 var nextCard: Card
+var boardModel: BoardModel = BoardModel.new()
 
 var isGameCompleted: bool = false
 
@@ -27,12 +28,12 @@ func _input(event):
 	if event.is_action_pressed("select_tile"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_pos: Vector2i = $BoardView.clickPosToCardPos(mouse_pos)
-		if not $BoardModel.canPutCard(tile_pos, nextCard):
+		if not boardModel.canPutCard(tile_pos, nextCard):
 			return
 		$BoardView.putCard(tile_pos, nextCard)
-		$BoardModel.putCard(tile_pos, nextCard)
+		boardModel.putCard(tile_pos, nextCard)
 
-		if $BoardModel.hasJustWon(tile_pos):
+		if boardModel.hasJustWon(tile_pos):
 			print("Player just won")
 			isGameCompleted = true
 			playerWon.emit(currentPlayer)

@@ -1,14 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://wtvqsq5vq5"]
+[gd_scene load_steps=3 format=3 uid="uid://wtvqsq5vq5"]
 
 [ext_resource type="Script" path="res://test4-otnup/game.gd" id="1_2dsk8"]
 [ext_resource type="PackedScene" uid="uid://b1c1ftlvgb4xe" path="res://test4-otnup/board_view.tscn" id="2_wtyej"]
-[ext_resource type="PackedScene" uid="uid://biorncdf5l6wd" path="res://test4-otnup/board_model.tscn" id="3_umol5"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2dsk8")
 
 [node name="BoardView" parent="." instance=ExtResource("2_wtyej")]
-
-[node name="BoardModel" parent="." instance=ExtResource("3_umol5")]
-
-[connection signal="hintMessage" from="BoardModel" to="." method="_on_board_model_hint_message"]
