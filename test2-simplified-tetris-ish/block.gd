@@ -1,25 +1,19 @@
-extends Area2D
+extends CharacterBody2D
 
-signal overlap
+signal hit_bottom
 
-var size = 20 # must match the size of the collision box and the sprite
+var vertical_speed # need to be injected
+var is_just_created = true
+var reached_bottom_already = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _physics_process(delta):
+	if reached_bottom_already:
+		return
+	if not is_just_created and get_last_motion().length() == 0:
+		reached_bottom_already = true
+		hit_bottom.emit()
+		return
+	is_just_created = false
+	velocity = vertical_speed * Vector2.DOWN
+	move_and_slide()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func get_position_of_upper_side():
-	return position.y - size / 2
-
-func get_position_of_lower_side():
-	return position.y + size / 2
-
-func set_position_of_lower_side(y):
-	position.y = y - size / 2
-func _on_area_entered(area):
-	overlap.emit(self)

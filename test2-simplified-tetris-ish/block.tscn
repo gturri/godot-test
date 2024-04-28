@@ -14,7 +14,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="block" type="Area2D"]
+[node name="block" type="CharacterBody2D"]
 script = ExtResource("1_vir0n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -22,5 +22,3 @@ sprite_frames = SubResource("SpriteFrames_4qjcd")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10, 10, -10, -10, -10)
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
