@@ -12,6 +12,8 @@ func _ready():
 	new_current_block()
 
 func new_current_block():
+	if current_block:
+		current_block.set_physics_process (false)
 	current_block = block_scene.instantiate()
 	current_block.position.x = viewport_size.x / 2
 	current_block.position.y = 0
