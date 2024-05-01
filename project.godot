@@ -66,6 +66,11 @@ down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="blockers"
+2d_physics/layer_2="permeableToTargetBlock"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

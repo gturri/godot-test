@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmid40mm4a14t"]
+[gd_scene load_steps=7 format=3 uid="uid://bmid40mm4a14t"]
 
 [ext_resource type="Script" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
 [ext_resource type="PackedScene" uid="uid://07mjysp80y6w" path="res://test6-red-donkey/BlockTarget.tscn" id="2_xg7po"]
@@ -6,33 +6,43 @@
 [ext_resource type="Texture2D" uid="uid://d2olhrl74ykcf" path="res://test6-red-donkey/img/lateralWall.svg" id="4_thvxw"]
 [ext_resource type="Texture2D" uid="uid://citsrcr58pfaf" path="res://test6-red-donkey/img/smallHorizontalWall.svg" id="5_47uph"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhcy8"]
+size = Vector2(128, 20)
+
 [node name="Board" type="Node2D"]
 script = ExtResource("1_7ku6j")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="SolidWalls" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SolidWalls"]
 polygon = PackedVector2Array(112, 20, 408, 20, 408, 360, 334, 360, 334, 340, 388, 340, 388, 40, 132, 40, 132, 340, 186, 340, 186, 360, 112, 360)
+
+[node name="LeftWall" type="Sprite2D" parent="SolidWalls"]
+position = Vector2(122, 190)
+texture = ExtResource("4_thvxw")
+
+[node name="RightWall" type="Sprite2D" parent="SolidWalls"]
+position = Vector2(398, 190)
+texture = ExtResource("4_thvxw")
+
+[node name="LowerLeftlWall" type="Sprite2D" parent="SolidWalls"]
+position = Vector2(154, 350)
+texture = ExtResource("5_47uph")
+
+[node name="LowerRightWall" type="Sprite2D" parent="SolidWalls"]
+position = Vector2(366, 350)
+texture = ExtResource("5_47uph")
+
+[node name="UpperWall" type="Sprite2D" parent="SolidWalls"]
+position = Vector2(260, 30)
+texture = ExtResource("3_m5nr8")
 
 [node name="BlockTarget" parent="." instance=ExtResource("2_xg7po")]
 position = Vector2(260, 104)
 
-[node name="UpperWall" type="Sprite2D" parent="."]
-position = Vector2(260, 30)
-texture = ExtResource("3_m5nr8")
+[node name="Exit" type="StaticBody2D" parent="."]
+collision_layer = 2
 
-[node name="LeftWall" type="Sprite2D" parent="."]
-position = Vector2(122, 190)
-texture = ExtResource("4_thvxw")
-
-[node name="RightWall" type="Sprite2D" parent="."]
-position = Vector2(398, 190)
-texture = ExtResource("4_thvxw")
-
-[node name="LowerLeftlWall" type="Sprite2D" parent="."]
-position = Vector2(154, 350)
-texture = ExtResource("5_47uph")
-
-[node name="LowerRightWall" type="Sprite2D" parent="."]
-position = Vector2(366, 350)
-texture = ExtResource("5_47uph")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(260, 350)
+shape = SubResource("RectangleShape2D_dhcy8")
