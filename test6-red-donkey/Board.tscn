@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmid40mm4a14t"]
+[gd_scene load_steps=9 format=3 uid="uid://bmid40mm4a14t"]
 
 [ext_resource type="Script" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
 [ext_resource type="PackedScene" uid="uid://07mjysp80y6w" path="res://test6-red-donkey/BlockTarget.tscn" id="2_xg7po"]
 [ext_resource type="Texture2D" uid="uid://dg74cp37pg8v0" path="res://test6-red-donkey/img/horizontalWall.svg" id="3_m5nr8"]
 [ext_resource type="Texture2D" uid="uid://d2olhrl74ykcf" path="res://test6-red-donkey/img/lateralWall.svg" id="4_thvxw"]
 [ext_resource type="Texture2D" uid="uid://citsrcr58pfaf" path="res://test6-red-donkey/img/smallHorizontalWall.svg" id="5_47uph"]
+[ext_resource type="PackedScene" uid="uid://3nwjxswcxmmo" path="res://test6-red-donkey/block_1x_1.tscn" id="6_nolol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhcy8"]
 size = Vector2(128, 20)
@@ -56,4 +57,11 @@ shape = SubResource("RectangleShape2D_dhcy8")
 position = Vector2(257, 413)
 shape = SubResource("RectangleShape2D_jcsv5")
 
+[node name="Block-1x1" parent="." instance=ExtResource("6_nolol")]
+position = Vector2(257, 230)
+collision_mask = 3
+input_pickable = true
+
+[connection signal="is_selected" from="BlockTarget" to="." method="_on_block_is_selected"]
 [connection signal="body_entered" from="GoalArea" to="." method="_on_goal_area_body_entered"]
+[connection signal="is_selected" from="Block-1x1" to="." method="_on_block_is_selected"]

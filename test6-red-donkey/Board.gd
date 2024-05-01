@@ -6,7 +6,7 @@ var currentBlock
 func _ready():
 	currentBlock = $BlockTarget
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("right"):
@@ -21,5 +21,10 @@ func _physics_process(delta):
 	currentBlock.velocity = speed * direction
 	currentBlock.move_and_slide()
 
-func _on_goal_area_body_entered(body):
+func _on_goal_area_body_entered(_body):
 	print("Player won") # TODO: re-emit to the HUD and stop game
+
+
+func _on_block_is_selected(block):
+	print("Selected a block")
+	currentBlock = block

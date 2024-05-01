@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://07mjysp80y6w"]
+[gd_scene load_steps=4 format=3 uid="uid://07mjysp80y6w"]
 
 [ext_resource type="Texture2D" uid="uid://hb5w545x1maq" path="res://test6-red-donkey/img/2x2-yellow.svg" id="1_okes8"]
+[ext_resource type="Script" path="res://test6-red-donkey/BlockTarget.gd" id="1_qe3c4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0vk7"]
 size = Vector2(128, 128)
 
 [node name="BlockTarget" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_qe3c4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l0vk7")
@@ -13,3 +16,5 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_okes8")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
