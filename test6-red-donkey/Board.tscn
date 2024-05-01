@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://bmid40mm4a14t"]
+[gd_scene load_steps=3 format=3 uid="uid://bmid40mm4a14t"]
+
+[ext_resource type="Texture2D" uid="uid://hb5w545x1maq" path="res://test6-red-donkey/img/2x2-yellow.svg" id="1_okes8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m32ip"]
+size = Vector2(128, 128)
 
 [node name="Board" type="Node2D"]
 
@@ -6,3 +11,12 @@
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(112, 20, 408, 20, 408, 360, 324, 360, 324, 340, 388, 340, 388, 40, 132, 40, 132, 340, 196, 340, 196, 360, 112, 360)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(260, 104)
+shape = SubResource("RectangleShape2D_m32ip")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_okes8")
