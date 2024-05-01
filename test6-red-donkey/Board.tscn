@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmid40mm4a14t"]
+[gd_scene load_steps=3 format=3 uid="uid://bmid40mm4a14t"]
 
 [ext_resource type="Script" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
+[ext_resource type="PackedScene" uid="uid://07mjysp80y6w" path="res://test6-red-donkey/BlockTarget.tscn" id="2_xg7po"]
 
 [node name="Board" type="Node2D"]
 script = ExtResource("1_7ku6j")
@@ -9,3 +10,6 @@ script = ExtResource("1_7ku6j")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(112, 20, 408, 20, 408, 360, 324, 360, 324, 340, 388, 340, 388, 40, 132, 40, 132, 340, 196, 340, 196, 360, 112, 360)
+
+[node name="BlockTarget" parent="." instance=ExtResource("2_xg7po")]
+position = Vector2(260, 104)
