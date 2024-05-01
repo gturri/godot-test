@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbxyjd4f4lvhc"]
+
+[ext_resource type="Texture2D" uid="uid://gvtvjambuh2c" path="res://test6-red-donkey/img/wall.svg" id="1_k7sdp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec5s3"]
+size = Vector2(20, 60)
+
+[node name="Wall" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ec5s3")
+
+[node name="Wall" type="Sprite2D" parent="."]
+texture = ExtResource("1_k7sdp")
