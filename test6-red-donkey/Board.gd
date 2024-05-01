@@ -20,3 +20,6 @@ func _physics_process(delta):
 
 	currentBlock.velocity = speed * direction
 	currentBlock.move_and_slide()
+
+func _on_goal_area_body_entered(body):
+	print("Player won") # TODO: re-emit to the HUD and stop game
