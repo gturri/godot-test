@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxchvcw1p1or4"]
+
+[ext_resource type="PackedScene" uid="uid://c4dqpi3so05op" path="res://test6-red-donkey/AbstractBlock.tscn" id="1_5dfwo"]
+[ext_resource type="Texture2D" uid="uid://bewhhl54oi74n" path="res://test6-red-donkey/img/2x1-block.svg" id="2_t1fj0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdrir"]
+size = Vector2(127, 63)
+
+[node name="Block2x1" instance=ExtResource("1_5dfwo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_vdrir")
+
+[node name="2x1-block" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_t1fj0")
