@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmid40mm4a14t"]
+[gd_scene load_steps=13 format=3 uid="uid://bmid40mm4a14t"]
 
 [ext_resource type="Script" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
 [ext_resource type="Texture2D" uid="uid://dg74cp37pg8v0" path="res://test6-red-donkey/img/horizontalWall.svg" id="3_m5nr8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c25msabvcug18" path="res://test6-red-donkey/block_1x1.tscn" id="6_gujpg"]
 [ext_resource type="PackedScene" uid="uid://c071vgadfj0ks" path="res://test6-red-donkey/block_1x_2.tscn" id="7_jvw2u"]
 [ext_resource type="PackedScene" uid="uid://dxchvcw1p1or4" path="res://test6-red-donkey/block_2x_1.tscn" id="8_vrv4p"]
+[ext_resource type="Texture2D" uid="uid://cq1fqcatyw840" path="res://test6-red-donkey/img/target.svg" id="10_k6t4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhcy8"]
 size = Vector2(128, 20)
@@ -90,6 +91,10 @@ position = Vector2(228, 264)
 
 [node name="Block-1x1-middle-left2" parent="." instance=ExtResource("6_gujpg")]
 position = Vector2(292, 264)
+
+[node name="Target" type="Sprite2D" parent="."]
+position = Vector2(258, 415)
+texture = ExtResource("10_k6t4l")
 
 [connection signal="body_entered" from="GoalArea" to="." method="_on_goal_area_body_entered"]
 [connection signal="is_selected" from="BlockTarget" to="." method="_on_block_is_selected"]
