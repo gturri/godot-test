@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmid40mm4a14t"]
+[gd_scene load_steps=12 format=3 uid="uid://bmid40mm4a14t"]
 
 [ext_resource type="Script" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
 [ext_resource type="Texture2D" uid="uid://dg74cp37pg8v0" path="res://test6-red-donkey/img/horizontalWall.svg" id="3_m5nr8"]
 [ext_resource type="Texture2D" uid="uid://d2olhrl74ykcf" path="res://test6-red-donkey/img/lateralWall.svg" id="4_thvxw"]
 [ext_resource type="Texture2D" uid="uid://citsrcr58pfaf" path="res://test6-red-donkey/img/smallHorizontalWall.svg" id="5_47uph"]
 [ext_resource type="PackedScene" uid="uid://d3q1v7kkcsx5c" path="res://test6-red-donkey/block_target.tscn" id="5_gfjji"]
+[ext_resource type="Texture2D" uid="uid://fhhadm8ijtxn" path="res://test6-red-donkey/img/permeableWall.svg" id="5_utvig"]
 [ext_resource type="PackedScene" uid="uid://c25msabvcug18" path="res://test6-red-donkey/block_1x1.tscn" id="6_gujpg"]
 [ext_resource type="PackedScene" uid="uid://c071vgadfj0ks" path="res://test6-red-donkey/block_1x_2.tscn" id="7_jvw2u"]
 [ext_resource type="PackedScene" uid="uid://dxchvcw1p1or4" path="res://test6-red-donkey/block_2x_1.tscn" id="8_vrv4p"]
@@ -49,6 +50,10 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(260, 370)
 shape = SubResource("RectangleShape2D_dhcy8")
+
+[node name="PermeableWall" type="Sprite2D" parent="Exit"]
+position = Vector2(257, 370)
+texture = ExtResource("5_utvig")
 
 [node name="GoalArea" type="Area2D" parent="."]
 
