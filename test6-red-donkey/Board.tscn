@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bmid40mm4a14t"]
 
 [ext_resource type="Script" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
-[ext_resource type="PackedScene" uid="uid://07mjysp80y6w" path="res://test6-red-donkey/BlockTarget.tscn" id="2_xg7po"]
 [ext_resource type="Texture2D" uid="uid://dg74cp37pg8v0" path="res://test6-red-donkey/img/horizontalWall.svg" id="3_m5nr8"]
 [ext_resource type="Texture2D" uid="uid://d2olhrl74ykcf" path="res://test6-red-donkey/img/lateralWall.svg" id="4_thvxw"]
 [ext_resource type="Texture2D" uid="uid://citsrcr58pfaf" path="res://test6-red-donkey/img/smallHorizontalWall.svg" id="5_47uph"]
-[ext_resource type="PackedScene" uid="uid://3nwjxswcxmmo" path="res://test6-red-donkey/block_1x_1.tscn" id="6_nolol"]
+[ext_resource type="PackedScene" uid="uid://d3q1v7kkcsx5c" path="res://test6-red-donkey/block_target.tscn" id="5_gfjji"]
+[ext_resource type="PackedScene" uid="uid://c25msabvcug18" path="res://test6-red-donkey/block_1x1.tscn" id="6_gujpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhcy8"]
 size = Vector2(128, 20)
@@ -41,9 +41,6 @@ texture = ExtResource("5_47uph")
 position = Vector2(260, 30)
 texture = ExtResource("3_m5nr8")
 
-[node name="BlockTarget" parent="." instance=ExtResource("2_xg7po")]
-position = Vector2(260, 104)
-
 [node name="Exit" type="StaticBody2D" parent="."]
 collision_layer = 2
 
@@ -57,11 +54,12 @@ shape = SubResource("RectangleShape2D_dhcy8")
 position = Vector2(257, 413)
 shape = SubResource("RectangleShape2D_jcsv5")
 
-[node name="Block-1x1" parent="." instance=ExtResource("6_nolol")]
-position = Vector2(257, 230)
-collision_mask = 3
-input_pickable = true
+[node name="BlockTarget" parent="." instance=ExtResource("5_gfjji")]
+position = Vector2(260, 104)
 
-[connection signal="is_selected" from="BlockTarget" to="." method="_on_block_is_selected"]
+[node name="Block-1x1" parent="." instance=ExtResource("6_gujpg")]
+position = Vector2(260, 200)
+
 [connection signal="body_entered" from="GoalArea" to="." method="_on_goal_area_body_entered"]
+[connection signal="is_selected" from="BlockTarget" to="." method="_on_block_is_selected"]
 [connection signal="is_selected" from="Block-1x1" to="." method="_on_block_is_selected"]

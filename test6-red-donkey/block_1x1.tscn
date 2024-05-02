@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c25msabvcug18"]
+
+[ext_resource type="PackedScene" uid="uid://c4dqpi3so05op" path="res://test6-red-donkey/AbstractBlock.tscn" id="1_byw7j"]
+[ext_resource type="Texture2D" uid="uid://csh12wx7elpes" path="res://test6-red-donkey/img/1x1-block.svg" id="2_eevet"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eecs"]
+size = Vector2(63, 63)
+
+[node name="Block-1x1" instance=ExtResource("1_byw7j")]
+collision_mask = 3
+input_pickable = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_3eecs")
+
+[node name="1x1-block2" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_eevet")
