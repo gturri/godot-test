@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmid40mm4a14t"]
+[gd_scene load_steps=11 format=3 uid="uid://bmid40mm4a14t"]
 
 [ext_resource type="Script" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
 [ext_resource type="Texture2D" uid="uid://dg74cp37pg8v0" path="res://test6-red-donkey/img/horizontalWall.svg" id="3_m5nr8"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://citsrcr58pfaf" path="res://test6-red-donkey/img/smallHorizontalWall.svg" id="5_47uph"]
 [ext_resource type="PackedScene" uid="uid://d3q1v7kkcsx5c" path="res://test6-red-donkey/block_target.tscn" id="5_gfjji"]
 [ext_resource type="PackedScene" uid="uid://c25msabvcug18" path="res://test6-red-donkey/block_1x1.tscn" id="6_gujpg"]
+[ext_resource type="PackedScene" uid="uid://c071vgadfj0ks" path="res://test6-red-donkey/block_1x_2.tscn" id="7_jvw2u"]
+[ext_resource type="PackedScene" uid="uid://dxchvcw1p1or4" path="res://test6-red-donkey/block_2x_1.tscn" id="8_vrv4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhcy8"]
 size = Vector2(128, 20)
@@ -19,22 +21,22 @@ script = ExtResource("1_7ku6j")
 [node name="SolidWalls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SolidWalls"]
-polygon = PackedVector2Array(112, 20, 408, 20, 408, 360, 334, 360, 334, 340, 388, 340, 388, 40, 132, 40, 132, 340, 186, 340, 186, 360, 112, 360)
+polygon = PackedVector2Array(112, 20, 408, 20, 408, 380, 334, 380, 334, 360, 388, 360, 388, 40, 132, 40, 132, 360, 186, 360, 186, 380, 112, 380)
 
 [node name="LeftWall" type="Sprite2D" parent="SolidWalls"]
-position = Vector2(122, 190)
+position = Vector2(122, 200)
 texture = ExtResource("4_thvxw")
 
 [node name="RightWall" type="Sprite2D" parent="SolidWalls"]
-position = Vector2(398, 190)
+position = Vector2(398, 200)
 texture = ExtResource("4_thvxw")
 
 [node name="LowerLeftlWall" type="Sprite2D" parent="SolidWalls"]
-position = Vector2(154, 350)
+position = Vector2(154, 370)
 texture = ExtResource("5_47uph")
 
 [node name="LowerRightWall" type="Sprite2D" parent="SolidWalls"]
-position = Vector2(366, 350)
+position = Vector2(366, 370)
 texture = ExtResource("5_47uph")
 
 [node name="UpperWall" type="Sprite2D" parent="SolidWalls"]
@@ -45,7 +47,7 @@ texture = ExtResource("3_m5nr8")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-position = Vector2(260, 350)
+position = Vector2(260, 370)
 shape = SubResource("RectangleShape2D_dhcy8")
 
 [node name="GoalArea" type="Area2D" parent="."]
@@ -57,9 +59,41 @@ shape = SubResource("RectangleShape2D_jcsv5")
 [node name="BlockTarget" parent="." instance=ExtResource("5_gfjji")]
 position = Vector2(260, 104)
 
-[node name="Block-1x1" parent="." instance=ExtResource("6_gujpg")]
+[node name="Block-1x1-lower-left" parent="." instance=ExtResource("6_gujpg")]
+position = Vector2(164, 328)
+
+[node name="Block1x2-upper-left" parent="." instance=ExtResource("7_jvw2u")]
+position = Vector2(164, 104)
+
+[node name="Block1x2-upper-right" parent="." instance=ExtResource("7_jvw2u")]
+position = Vector2(356, 104)
+
+[node name="Block1x2-middle-left" parent="." instance=ExtResource("7_jvw2u")]
+position = Vector2(164, 232)
+
+[node name="Block1x2-middle-right" parent="." instance=ExtResource("7_jvw2u")]
+position = Vector2(356, 232)
+
+[node name="Block-1x1-lower-right" parent="." instance=ExtResource("6_gujpg")]
+position = Vector2(356, 328)
+
+[node name="Block2x1" parent="." instance=ExtResource("8_vrv4p")]
 position = Vector2(260, 200)
+
+[node name="Block-1x1-middle-left" parent="." instance=ExtResource("6_gujpg")]
+position = Vector2(228, 264)
+
+[node name="Block-1x1-middle-left2" parent="." instance=ExtResource("6_gujpg")]
+position = Vector2(292, 264)
 
 [connection signal="body_entered" from="GoalArea" to="." method="_on_goal_area_body_entered"]
 [connection signal="is_selected" from="BlockTarget" to="." method="_on_block_is_selected"]
-[connection signal="is_selected" from="Block-1x1" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block-1x1-lower-left" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block1x2-upper-left" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block1x2-upper-right" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block1x2-middle-left" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block1x2-middle-right" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block-1x1-lower-right" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block2x1" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block-1x1-middle-left" to="." method="_on_block_is_selected"]
+[connection signal="is_selected" from="Block-1x1-middle-left2" to="." method="_on_block_is_selected"]

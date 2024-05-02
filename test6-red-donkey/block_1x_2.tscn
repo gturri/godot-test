@@ -7,6 +7,7 @@
 size = Vector2(63, 127)
 
 [node name="Block1x2" instance=ExtResource("1_j87i8")]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_nyk7x")

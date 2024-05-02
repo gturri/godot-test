@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://test6-red-donkey/AbstractBlock.gd" id="1_lmwge"]
 
 [node name="AbstractBlock" type="CharacterBody2D"]
+input_pickable = true
 script = ExtResource("1_lmwge")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
