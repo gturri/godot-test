@@ -1,7 +1,7 @@
 extends TileMap
 
 const sourceId := 0
-@export var speed := 64
+@export var speed := 256
 
 var astar := AStar2D.new()
 var remaining_path := PackedVector2Array()
