@@ -33,7 +33,7 @@ animations = [{
 "texture": ExtResource("4_soknv")
 }],
 "loop": true,
-"name": &"default",
+"name": &"move",
 "speed": 5.0
 }]
 
@@ -44,3 +44,4 @@ script = ExtResource("2_h2vkf")
 
 [node name="Dot" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uli7x")
+animation = &"move"
