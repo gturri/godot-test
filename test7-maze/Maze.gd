@@ -19,5 +19,7 @@ func _ready():
 	set_cell(0, Vector2i(2, 2), sourceId, Vector2i(1, 0))
 	set_cell(0, Vector2i(2, 3), sourceId, Vector2i(8, 0))
 
+	$Dot.position = Vector2(64, 64)
+
 func _process(delta):
 	pass

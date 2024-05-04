@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://comacbyfobibf"]
+[gd_scene load_steps=8 format=3 uid="uid://comacbyfobibf"]
 
 [ext_resource type="Texture2D" uid="uid://d37vtbevcra55" path="res://test7-maze/img/tilesheet.png" id="1_6ciu2"]
 [ext_resource type="Script" path="res://test7-maze/Maze.gd" id="2_h2vkf"]
+[ext_resource type="Texture2D" uid="uid://h3f3v31g5gyc" path="res://test7-maze/img/dot.svg" id="3_y0vvk"]
+[ext_resource type="Texture2D" uid="uid://mkx2rd54h4eh" path="res://test7-maze/img/dot2.svg" id="4_soknv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pycdt"]
 texture = ExtResource("1_6ciu2")
@@ -21,7 +23,24 @@ texture_region_size = Vector2i(128, 128)
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_pycdt")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_uli7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y0vvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_soknv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Maze" type="TileMap"]
 tile_set = SubResource("TileSet_5hai8")
 format = 2
 script = ExtResource("2_h2vkf")
+
+[node name="Dot" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uli7x")
