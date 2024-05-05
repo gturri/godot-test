@@ -10,7 +10,7 @@ func _ready():
 func set_movement_target(movement_target: Vector2):
 	$NavigationAgent2D.target_position = movement_target
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if $NavigationAgent2D.is_navigation_finished():
 		$AnimatedSprite2D.stop()
 		return
