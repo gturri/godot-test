@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h3f3v31g5gyc"
-path="res://.godot/imported/dot.svg-cc0eb07014e48a44b87520bd0acca582.ctex"
+uid="uid://d37vtbevcra55"
+path="res://.godot/imported/tilesheet.png-9efa04b848fee01e12919d6e25654cce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test7-maze/img/dot.svg"
-dest_files=["res://.godot/imported/dot.svg-cc0eb07014e48a44b87520bd0acca582.ctex"]
+source_file="res://test7-maze-astar2D/img/tilesheet.png"
+dest_files=["res://.godot/imported/tilesheet.png-9efa04b848fee01e12919d6e25654cce.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

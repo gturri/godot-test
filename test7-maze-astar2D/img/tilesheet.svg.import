@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mkx2rd54h4eh"
-path="res://.godot/imported/dot2.svg-2d6ecdd618eb221407f909b15eabceb4.ctex"
+uid="uid://dbv8p4w2hny7p"
+path="res://.godot/imported/tilesheet.svg-7c1b4dc980776080ac7a28b296e95032.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test7-maze/img/dot2.svg"
-dest_files=["res://.godot/imported/dot2.svg-2d6ecdd618eb221407f909b15eabceb4.ctex"]
+source_file="res://test7-maze-astar2D/img/tilesheet.svg"
+dest_files=["res://.godot/imported/tilesheet.svg-7c1b4dc980776080ac7a28b296e95032.ctex"]
 
 [params]
 
