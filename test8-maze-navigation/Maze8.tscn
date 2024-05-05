@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://comacbyfobibf"]
+[gd_scene load_steps=16 format=3 uid="uid://comacbyfobibf"]
 
-[ext_resource type="Texture2D" uid="uid://d37vtbevcra55" path="res://test7-maze-astar2D/img/tilesheet.png" id="1_alr4k"]
+[ext_resource type="Texture2D" uid="uid://d37vtbevcra55" path="res://test8-maze-navigation/img/tilesheet.png" id="1_alr4k"]
 [ext_resource type="Script" path="res://test8-maze-navigation/Maze8.gd" id="2_erlr8"]
-[ext_resource type="Texture2D" uid="uid://h3f3v31g5gyc" path="res://test7-maze-astar2D/img/dot.svg" id="3_8hcye"]
-[ext_resource type="Texture2D" uid="uid://mkx2rd54h4eh" path="res://test7-maze-astar2D/img/dot2.svg" id="4_mpln3"]
+[ext_resource type="PackedScene" uid="uid://dr5ocfppicpmg" path="res://test8-maze-navigation/maze_character.tscn" id="3_6tnoo"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_voyxc"]
 vertices = PackedVector2Array(64, 32, -64, 32, -64, -32, 64, -32)
@@ -149,25 +148,9 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_pycdt")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_uli7x"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_8hcye")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_mpln3")
-}],
-"loop": true,
-"name": &"move",
-"speed": 5.0
-}]
-
 [node name="Maze8" type="TileMap"]
 tile_set = SubResource("TileSet_5hai8")
 format = 2
 script = ExtResource("2_erlr8")
 
-[node name="Dot" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_uli7x")
-animation = &"move"
+[node name="MazeCharacter" parent="." instance=ExtResource("3_6tnoo")]
