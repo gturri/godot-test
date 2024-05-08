@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://h15c0g0py4qk"]
+
+[ext_resource type="PackedScene" uid="uid://b2n5ogq0km31a" path="res://test9-platform/Platform.tscn" id="1_my71u"]
+[ext_resource type="PackedScene" uid="uid://ca8cyesogoh0p" path="res://test9-platform/Hero.tscn" id="2_cpvsn"]
+
+[node name="Test9-platform-main" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_my71u")]
+position = Vector2(78, 141)
+
+[node name="Platform2" parent="." instance=ExtResource("1_my71u")]
+position = Vector2(266, 274)
+
+[node name="Platform3" parent="." instance=ExtResource("1_my71u")]
+position = Vector2(474, 332)
+
+[node name="Platform4" parent="." instance=ExtResource("1_my71u")]
+position = Vector2(64, 452)
+
+[node name="Hero" parent="." instance=ExtResource("2_cpvsn")]
+position = Vector2(76, 79)
