@@ -1,0 +1,29 @@
+<svg width="512" height="128" xmlns="http://www.w3.org/2000/svg">
+	<!-- My baseline: no viewbox, and I use percentage -->
+	<svg x="0%" width="25%" height="100%">
+			<line x1="50%" y1="0" x2="50%" y2="100%" stroke="black" stroke-width="5%"/>
+			<line x1="0" y1="50%" x2="100%" y2="50%" stroke="black" stroke-width="5%"/>
+	</svg>
+
+	<!-- With a viewbox, to be able to not use percentage but still have something independant from my viewport -->
+	<svg x="25%" width="25%" height="100%" viewBox="0 0 100 100">
+			<line x1="50" y1="0" x2="50" y2="100" stroke="black" stroke-width="5"/>
+			<line x1="0" y1="50" x2="100" y2="50" stroke="black" stroke-width="5"/>
+	</svg>
+
+	<!-- with a viewbow one level below. Why is this cross smaller? -->
+	<svg x="50%" width="25%" height="100%">
+		<svg viewBox="0 0 100 100">
+			<line x1="50" y1="0" x2="50" y2="100" stroke="black" stroke-width="5"/>
+			<line x1="0" y1="50" x2="100" y2="50" stroke="black" stroke-width="5"/>
+		</svg>
+	</svg>
+
+	<!-- with a viewbox inside a viewbox. The size is restored but I have no clue why... -->
+	<svg x="75%" width="25%" height="100%" viewBox="0 0 100 100">
+		<g viewBox="0 0 100 100">
+			<line x1="50" y1="0" x2="50" y2="100" stroke="black" stroke-width="5"/>
+			<line x1="0" y1="50" x2="100" y2="50" stroke="black" stroke-width="5"/>
+		</g>
+	</svg>
+</svg>
