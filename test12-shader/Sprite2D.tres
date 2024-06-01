@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://g8ocscv42ian"]
+
+[ext_resource type="Shader" path="res://test12-shader/Sprite2D.gdshader" id="1_2prxi"]
+
+[resource]
+shader = ExtResource("1_2prxi")

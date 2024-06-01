@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvoh1u7cio6o6"]
+
+[ext_resource type="Shader" path="res://test12-shader/Sprite2D.gdshader" id="1_scbkr"]
+[ext_resource type="Texture2D" uid="uid://dvb5m2i6bkejo" path="res://icon.svg" id="2_g76o7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qfe2q"]
+shader = ExtResource("1_scbkr")
+
+[node name="Sprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_qfe2q")
+texture = ExtResource("2_g76o7")
