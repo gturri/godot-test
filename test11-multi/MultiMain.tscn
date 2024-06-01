@@ -34,11 +34,18 @@ offset_bottom = 194.0
 placeholder_text = "Write your message here"
 
 [node name="SetClient" type="Button" parent="."]
-offset_left = 244.0
-offset_top = 218.0
-offset_right = 344.0
-offset_bottom = 249.0
+offset_left = 293.0
+offset_top = 225.0
+offset_right = 393.0
+offset_bottom = 256.0
 text = "set as client"
+
+[node name="Address" type="TextEdit" parent="."]
+offset_left = 298.0
+offset_top = 262.0
+offset_right = 401.0
+offset_bottom = 298.0
+text = "127.0.0.1"
 
 [connection signal="pressed" from="Send" to="." method="_on_send_pressed"]
 [connection signal="pressed" from="SetServer" to="." method="_on_set_server_pressed"]
