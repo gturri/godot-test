@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b28nnefi0jnre"]
+
+[ext_resource type="Texture2D" uid="uid://b503ks6wxavpp" path="res://test10-train/imgs/wagon.svg" id="1_ksj3q"]
+
+[node name="Train" type="Sprite2D"]
+texture = ExtResource("1_ksj3q")

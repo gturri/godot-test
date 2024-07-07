@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cphpx7cg8t2ay"]
 
 [ext_resource type="Script" path="res://test10-train/scripts/attempt_2.gd" id="1_blmjy"]
-[ext_resource type="Texture2D" uid="uid://cije7pk4xswm8" path="res://test10-train/imgs/wagon.svg" id="2_auajw"]
+[ext_resource type="PackedScene" uid="uid://b28nnefi0jnre" path="res://test10-train/scenes/Train.tscn" id="2_un8j7"]
 
 [node name="Attempt2" type="Node2D"]
 script = ExtResource("1_blmjy")
 
-[node name="Train" type="Sprite2D" parent="."]
-texture = ExtResource("2_auajw")
+[node name="Train" parent="." instance=ExtResource("2_un8j7")]
