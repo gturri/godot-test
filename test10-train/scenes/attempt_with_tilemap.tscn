@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://k0gnonncwk4k"]
+
+[ext_resource type="Texture2D" uid="uid://byc48ohfgyd7u" path="res://test10-train/imgs/rail_tileset.png" id="1_hvx3n"]
+[ext_resource type="Script" path="res://test10-train/scripts/attempt_with_tilemap.gd" id="2_wcl8c"]
+[ext_resource type="PackedScene" uid="uid://b28nnefi0jnre" path="res://test10-train/scenes/Train.tscn" id="3_2ly7j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xoqy2"]
+texture = ExtResource("1_hvx3n")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/custom_data_0 = [0, 2]
+1:0/0 = 0
+1:0/0/custom_data_0 = [1, 3]
+2:0/0 = 0
+2:0/0/custom_data_0 = [1, 2]
+3:0/0 = 0
+3:0/0/custom_data_0 = [0, 1]
+4:0/0 = 0
+4:0/0/custom_data_0 = [0, 3]
+5:0/0 = 0
+5:0/0/custom_data_0 = [2, 3]
+
+[sub_resource type="TileSet" id="TileSet_o5wh1"]
+tile_size = Vector2i(128, 128)
+custom_data_layer_0/name = "exits"
+custom_data_layer_0/type = 28
+sources/2 = SubResource("TileSetAtlasSource_xoqy2")
+
+[node name="AttemptWithTilemap" type="TileMap"]
+position = Vector2(-6, 0)
+tile_set = SubResource("TileSet_o5wh1")
+format = 2
+script = ExtResource("2_wcl8c")
+
+[node name="Train" parent="." instance=ExtResource("3_2ly7j")]
