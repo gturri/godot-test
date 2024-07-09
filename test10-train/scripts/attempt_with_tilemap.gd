@@ -33,31 +33,23 @@ func set_train_position() -> void:
 func _process(delta):
 	var direction_multiplier = direction_to_speed_multiplier(current_LocationAndSpeedMetadata.moving_forward)
 	current_LocationAndSpeedMetadata.ratio += direction_multiplier * speed * delta
-	print("tempGT: new ratio: " + str(current_LocationAndSpeedMetadata.ratio))
 	if current_LocationAndSpeedMetadata.ratio > 1:
 		var frontier_side: int = get_cell_exit_side(current_LocationAndSpeedMetadata.cell_coords)
-		current_LocationAndSpeedMetadata = compute_next_locationAndSpeedMetadata(frontier_side)
+		current_LocationAndSpeedMetadata = compute_next_locationAndSpeedMetadata(frontier_side, current_LocationAndSpeedMetadata.ratio-1)
 	elif current_LocationAndSpeedMetadata.ratio < 0:
 		var frontier_side: int = get_cell_entry_side(current_LocationAndSpeedMetadata.cell_coords)
-		current_LocationAndSpeedMetadata = compute_next_locationAndSpeedMetadata(frontier_side)
+		current_LocationAndSpeedMetadata = compute_next_locationAndSpeedMetadata(frontier_side, -current_LocationAndSpeedMetadata.ratio)
 	set_train_position()
 
-func compute_next_locationAndSpeedMetadata(frontier_side: int) -> LocationAndSpeedMetadata:
+func compute_next_locationAndSpeedMetadata(frontier_side: int, remaining_ratio:float) -> LocationAndSpeedMetadata:
+	assert(0 < remaining_ratio and remaining_ratio < 1)
 	var next_cell_coords: Vector2i = get_neighbor_cell(current_LocationAndSpeedMetadata.cell_coords, side_to_CellNeighbor(frontier_side))
 	var move_forward_on_next_path: bool = next_cell_entry_side(frontier_side) == get_cell_entry_side(next_cell_coords)
 	var res = LocationAndSpeedMetadata.new(next_cell_coords, move_forward_on_next_path)
-	if current_LocationAndSpeedMetadata.ratio > 1:
-		if move_forward_on_next_path:
-			res.ratio = current_LocationAndSpeedMetadata.ratio - 1
-		else:
-			res.ratio = 2 - current_LocationAndSpeedMetadata.ratio
+	if move_forward_on_next_path:
+		res.ratio = remaining_ratio
 	else:
-		if move_forward_on_next_path:
-			res.ratio = -current_LocationAndSpeedMetadata.ratio
-		else:
-			res.ratio = 1+current_LocationAndSpeedMetadata.ratio
-	#res.ratio = current_LocationAndSpeedMetadata.ratio - direction_to_speed_multiplier(move_forward_on_next_path)
-	print("tempGT: new data: " + str(res))
+		res.ratio = 1 - remaining_ratio
 	return res
 
 class LocationAndSpeedMetadata:
