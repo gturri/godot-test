@@ -17,7 +17,7 @@ func _ready():
 	add_tile(Vector2i(0, 0), 4)
 	add_tile(Vector2i(1, 0), 0)
 	add_tile(Vector2i(2, 0), 5)
-	#add_tile(Vector2i(2, 1), 1)
+	add_tile(Vector2i(2, 1), 4)
 	add_tile(Vector2i(2, 2), 2)
 	add_tile(Vector2i(1, 2), 0)
 	add_tile(Vector2i(0, 2), 3)
@@ -48,7 +48,10 @@ func compute_next_locationAndSpeedMetadata(frontier_side: int, remaining_ratio:f
 	if get_cell_tile_data(0, next_cell_coords) == null:
 		return get_locationAndSpeedMetadata_with_reverse_direction()
 
-	var move_forward_on_next_path: bool = next_cell_entry_side(frontier_side) == get_cell_entry_side(next_cell_coords)
+	var move_forward_on_next_path = should_move_forward_on_next_path(frontier_side, next_cell_coords)
+	if move_forward_on_next_path == null:
+		return get_locationAndSpeedMetadata_with_reverse_direction()
+
 	var res = LocationAndSpeedMetadata.new(next_cell_coords, move_forward_on_next_path)
 	if move_forward_on_next_path:
 		res.ratio = remaining_ratio
@@ -60,6 +63,18 @@ func get_locationAndSpeedMetadata_with_reverse_direction() -> LocationAndSpeedMe
 	var res = LocationAndSpeedMetadata.new(current_LocationAndSpeedMetadata.cell_coords, not current_LocationAndSpeedMetadata.moving_forward)
 	res.ratio = clamp(current_LocationAndSpeedMetadata.ratio, 0, 1)
 	return res
+
+# Returns:
+# - true if the train arrives on the entry of the next cell
+# - false if the train arrives on the exit of the next cell
+# - null if the next cell cannot be entered from the side where the train is
+func should_move_forward_on_next_path(current_cell_exit_side: int, next_cell_coords: Vector2i):
+	var next_entry_side = next_cell_entry_side(current_cell_exit_side)
+	if next_entry_side == get_cell_entry_side(next_cell_coords):
+		return true
+	if next_entry_side == get_cell_exit_side(next_cell_coords):
+		return false
+	return null
 
 class LocationAndSpeedMetadata:
 	var cell_coords: Vector2i
