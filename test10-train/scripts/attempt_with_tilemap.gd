@@ -17,7 +17,7 @@ func _ready():
 	add_tile(Vector2i(0, 0), 4)
 	add_tile(Vector2i(1, 0), 0)
 	add_tile(Vector2i(2, 0), 5)
-	add_tile(Vector2i(2, 1), 1)
+	#add_tile(Vector2i(2, 1), 1)
 	add_tile(Vector2i(2, 2), 2)
 	add_tile(Vector2i(1, 2), 0)
 	add_tile(Vector2i(0, 2), 3)
@@ -44,12 +44,21 @@ func _process(delta):
 func compute_next_locationAndSpeedMetadata(frontier_side: int, remaining_ratio:float) -> LocationAndSpeedMetadata:
 	assert(0 < remaining_ratio and remaining_ratio < 1)
 	var next_cell_coords: Vector2i = get_neighbor_cell(current_LocationAndSpeedMetadata.cell_coords, side_to_CellNeighbor(frontier_side))
+
+	if get_cell_tile_data(0, next_cell_coords) == null:
+		return get_locationAndSpeedMetadata_with_reverse_direction()
+
 	var move_forward_on_next_path: bool = next_cell_entry_side(frontier_side) == get_cell_entry_side(next_cell_coords)
 	var res = LocationAndSpeedMetadata.new(next_cell_coords, move_forward_on_next_path)
 	if move_forward_on_next_path:
 		res.ratio = remaining_ratio
 	else:
 		res.ratio = 1 - remaining_ratio
+	return res
+
+func get_locationAndSpeedMetadata_with_reverse_direction() -> LocationAndSpeedMetadata:
+	var res = LocationAndSpeedMetadata.new(current_LocationAndSpeedMetadata.cell_coords, not current_LocationAndSpeedMetadata.moving_forward)
+	res.ratio = clamp(current_LocationAndSpeedMetadata.ratio, 0, 1)
 	return res
 
 class LocationAndSpeedMetadata:
