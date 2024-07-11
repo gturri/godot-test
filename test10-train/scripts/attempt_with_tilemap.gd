@@ -9,6 +9,7 @@ var cell_to_path := {}
 const tileset_source_id = 2
 
 @export var speed: float = 5
+@export var asteroid_style = true
 
 var current_LocationAndSpeedMetadata: LocationAndSpeedMetadata
 
@@ -26,9 +27,13 @@ func _ready():
 	current_LocationAndSpeedMetadata = LocationAndSpeedMetadata.new(Vector2i(0, 0), true)
 
 func set_train_position() -> void:
-	var path_follow: PathFollow2D = cell_to_path[current_LocationAndSpeedMetadata.cell_coords].get_node("PathFollow2D")
+	var path = cell_to_path[current_LocationAndSpeedMetadata.cell_coords]
+	var path_follow: PathFollow2D = path.get_node("PathFollow2D")
 	path_follow.set_progress_ratio(current_LocationAndSpeedMetadata.ratio)
 	$Train.position = path_follow.position
+	if asteroid_style:
+		var curve = path.get_curve()
+		$Train.set_rotation(curve.sample_baked_with_rotation(current_LocationAndSpeedMetadata.ratio).get_rotation())
 
 func _process(delta):
 	var direction_multiplier = direction_to_speed_multiplier(current_LocationAndSpeedMetadata.moving_forward)
