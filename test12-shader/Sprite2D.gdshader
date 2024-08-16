@@ -17,7 +17,7 @@ void fragment() {
 	float dx = 0.5-UV.x;
 	float dy = 0.5-UV.y;
 	float r = sqrt(dx*dx + dy*dy);
-	
+
 	float mult = max(min(a*r+b, 1), 0);
 	COLOR.b *= mult;
 	COLOR.r *= mult;
