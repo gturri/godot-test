@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wtvqsq5vq5"]
 
-[ext_resource type="Script" path="res://test4-otnup/game.gd" id="1_2dsk8"]
+[ext_resource type="Script" uid="uid://bbcmrhd2afbbk" path="res://test4-otnup/game.gd" id="1_2dsk8"]
 [ext_resource type="PackedScene" uid="uid://b1c1ftlvgb4xe" path="res://test4-otnup/board_view.tscn" id="2_wtyej"]
 
 [node name="Game" type="Node2D"]

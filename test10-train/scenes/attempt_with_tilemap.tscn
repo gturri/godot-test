@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://k0gnonncwk4k"]
 
 [ext_resource type="Texture2D" uid="uid://byc48ohfgyd7u" path="res://test10-train/imgs/rail_tileset.png" id="1_hvx3n"]
-[ext_resource type="Script" path="res://test10-train/scripts/attempt_with_tilemap.gd" id="2_wcl8c"]
+[ext_resource type="Script" uid="uid://d20214sxyxmps" path="res://test10-train/scripts/attempt_with_tilemap.gd" id="2_wcl8c"]
 [ext_resource type="PackedScene" uid="uid://b28nnefi0jnre" path="res://test10-train/scenes/Train.tscn" id="3_2ly7j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xoqy2"]

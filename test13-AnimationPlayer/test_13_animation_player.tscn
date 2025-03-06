@@ -20,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cq0w1"]
 _data = {
-"RESET": SubResource("Animation_m7p2g")
+&"RESET": SubResource("Animation_m7p2g")
 }
 
 [node name="Test13-AnimationPlayer" type="Node2D"]

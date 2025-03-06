@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://comacbyfobibf"]
 
-[ext_resource type="Texture2D" uid="uid://d37vtbevcra55" path="res://test7-maze-astar2D/img/tilesheet.png" id="1_6ciu2"]
-[ext_resource type="Script" path="res://test7-maze-astar2D/Maze.gd" id="2_h2vkf"]
-[ext_resource type="Texture2D" uid="uid://h3f3v31g5gyc" path="res://test7-maze-astar2D/img/dot.svg" id="3_y0vvk"]
-[ext_resource type="Texture2D" uid="uid://mkx2rd54h4eh" path="res://test7-maze-astar2D/img/dot2.svg" id="4_soknv"]
+[ext_resource type="Texture2D" uid="uid://d37vtbevcra55" path="res://test8-maze-navigation/img/tilesheet.png" id="1_6ciu2"]
+[ext_resource type="Script" uid="uid://het1fkuqjpnj" path="res://test7-maze-astar2D/Maze.gd" id="2_h2vkf"]
+[ext_resource type="Texture2D" uid="uid://h3f3v31g5gyc" path="res://test8-maze-navigation/img/dot.svg" id="3_y0vvk"]
+[ext_resource type="Texture2D" uid="uid://mkx2rd54h4eh" path="res://test8-maze-navigation/img/dot2.svg" id="4_soknv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pycdt"]
 texture = ExtResource("1_6ciu2")

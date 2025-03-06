@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bmid40mm4a14t"]
 
-[ext_resource type="Script" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
+[ext_resource type="Script" uid="uid://cxtt88mvsi4oh" path="res://test6-red-donkey/Board.gd" id="1_7ku6j"]
 [ext_resource type="Texture2D" uid="uid://dg74cp37pg8v0" path="res://test6-red-donkey/img/horizontalWall.svg" id="3_m5nr8"]
 [ext_resource type="Texture2D" uid="uid://d2olhrl74ykcf" path="res://test6-red-donkey/img/lateralWall.svg" id="4_thvxw"]
 [ext_resource type="Texture2D" uid="uid://citsrcr58pfaf" path="res://test6-red-donkey/img/smallHorizontalWall.svg" id="5_47uph"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c4dqpi3so05op"]
 
-[ext_resource type="Script" path="res://test6-red-donkey/AbstractBlock.gd" id="1_lmwge"]
+[ext_resource type="Script" uid="uid://bi5mygnwcpmiv" path="res://test6-red-donkey/AbstractBlock.gd" id="1_lmwge"]
 
 [node name="AbstractBlock" type="CharacterBody2D"]
 input_pickable = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bf7o8k1sv7p3r"]
 
-[ext_resource type="Script" path="res://test1/test1MainNode.gd" id="1_a86y5"]
+[ext_resource type="Script" uid="uid://b27dttf8vmy53" path="res://test1/test1MainNode.gd" id="1_a86y5"]
 [ext_resource type="PackedScene" uid="uid://baaq8kr3of2p4" path="res://test1/character.tscn" id="2_eh06c"]
 
 [sub_resource type="Curve2D" id="Curve2D_x7m6r"]

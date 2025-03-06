@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ganruq0eivp0"]
 
-[ext_resource type="Script" path="res://test15-clicked-area/area_2d.gd" id="1_lxlcv"]
+[ext_resource type="Script" uid="uid://cael3y28afj5x" path="res://test15-clicked-area/area_2d.gd" id="1_lxlcv"]
 [ext_resource type="Texture2D" uid="uid://dvb5m2i6bkejo" path="res://icon.svg" id="1_w8xth"]
-[ext_resource type="Script" path="res://test15-clicked-area/node.gd" id="1_xwoml"]
+[ext_resource type="Script" uid="uid://c1vihtfhuam0b" path="res://test15-clicked-area/node.gd" id="1_xwoml"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nd2lv"]
 radius = 85.0059

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cphpx7cg8t2ay"]
 
-[ext_resource type="Script" path="res://test10-train/scripts/attempt_2.gd" id="1_blmjy"]
+[ext_resource type="Script" uid="uid://cn0wi3qywrms8" path="res://test10-train/scripts/attempt_2.gd" id="1_blmjy"]
 [ext_resource type="PackedScene" uid="uid://b28nnefi0jnre" path="res://test10-train/scenes/Train.tscn" id="2_un8j7"]
 
 [node name="Attempt2" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7ihki7gwne2u"]
 
-[ext_resource type="Script" path="res://test2-simplified-tetris-ish/test2Main.gd" id="1_1x1bq"]
+[ext_resource type="Script" uid="uid://d2y2f62hwol5r" path="res://test2-simplified-tetris-ish/test2Main.gd" id="1_1x1bq"]
 [ext_resource type="PackedScene" uid="uid://dr48vbv2tk63x" path="res://test2-simplified-tetris-ish/block.tscn" id="2_tgwim"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6knrp"]

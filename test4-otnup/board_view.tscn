@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1c1ftlvgb4xe"]
 
 [ext_resource type="Texture2D" uid="uid://7pnjyywmj3w4" path="res://test4-otnup/tiles/tilesheet.png" id="1_6fld7"]
-[ext_resource type="Script" path="res://test4-otnup/BoardCamera.gd" id="2_jpif2"]
-[ext_resource type="Script" path="res://test4-otnup/board_view.gd" id="2_uwxjb"]
+[ext_resource type="Script" uid="uid://bju3kkyow3g77" path="res://test4-otnup/BoardCamera.gd" id="2_jpif2"]
+[ext_resource type="Script" uid="uid://df7mi173daik2" path="res://test4-otnup/board_view.gd" id="2_uwxjb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ok31r"]
 texture = ExtResource("1_6fld7")
